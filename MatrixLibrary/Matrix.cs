@@ -8,6 +8,11 @@ namespace MatrixLibrary
         private double[,] _matrix;
         private static Random random = new Random();
         
+        /// <summary>
+        /// Instantiate a new matrix lxc
+        /// </summary>
+        /// <param name="l">number of rows</param>
+        /// <param name="c">number of column</param>
         public Matrix(int l, int c)
         {
             _matrix = new double[l, c];
@@ -15,6 +20,12 @@ namespace MatrixLibrary
             // c => Width
         }
         
+        /// <summary>
+        /// Instanciate a new matrix lxc with a value
+        /// </summary>
+        /// <param name="l">number of rows</param>
+        /// <param name="c">number of column</param>
+        /// <param name="val">default value in matrix cell</param>
         public Matrix(int l, int c, long val)
         {
             _matrix = new double[l, c];
@@ -29,6 +40,11 @@ namespace MatrixLibrary
             
         }
 
+        /// <summary>
+        /// Fill with random value between 'start' and 'end'
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public void Randomize(int start, int end)
         {
             for (int l = 0; l < Height(); l++)
@@ -40,6 +56,11 @@ namespace MatrixLibrary
             }
         }
 
+        /// <summary>
+        /// Add another matrix to the instance
+        /// </summary>
+        /// <param name="m">Matrix to add</param>
+        /// <exception cref="MatrixException">Dimension not egual</exception>
         public void Add(Matrix m)
         {
             if (Width() != m.Width() || Height() != m.Height())
@@ -54,6 +75,10 @@ namespace MatrixLibrary
             }
         }
 
+        /// <summary>
+        /// Multiply by a scaller
+        /// </summary>
+        /// <param name="sc"></param>
         public void Scaller(double sc)
         {
             for (int i = 0; i < Height(); i++)
@@ -65,6 +90,10 @@ namespace MatrixLibrary
             }
         }
 
+        /// <summary>
+        /// Map a function to each element in the matrix
+        /// </summary>
+        /// <param name="func"></param>
         public void Map(Func<double, double> func)
         {
             for (int i = 0; i < Height(); i++)
