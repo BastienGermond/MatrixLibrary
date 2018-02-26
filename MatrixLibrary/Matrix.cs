@@ -256,6 +256,12 @@ namespace MatrixLibrary
         /*
          * Special matrix
          */
+        
+        /// <summary>
+        /// Return a vandermonde matrix
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static Matrix Vandermonde(int n)
         {
             Matrix vandermonde = new Matrix(n + 1, n + 1);
