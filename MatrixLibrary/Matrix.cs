@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Runtime.Remoting.Channels;
 
 namespace MatrixLibrary
 {
@@ -249,6 +251,24 @@ namespace MatrixLibrary
             }
 
             return result;
+        }
+        
+        /*
+         * Special matrix
+         */
+        public static Matrix Vandermonde(int n)
+        {
+            Matrix vandermonde = new Matrix(n + 1, n + 1);
+
+            for (int i = 0; i <= n; i++)
+            {
+                for (int j = 0; j <= n; j++)
+                {
+                    vandermonde.set(i, j, Math.Pow(i, j));
+                }
+            }
+
+            return vandermonde;
         }
         
         /*
